@@ -4,8 +4,9 @@
 :root {
     --black: #000000;
     --white: #ffffff;
-    --font-head: 'Cinzel', serif;
-    --font-body: 'Lato', sans-serif;
+    /* UPDATED FONTS TO MONTSERRAT */
+    --font-head: 'Montserrat', sans-serif; 
+    --font-body: 'Montserrat', sans-serif;
     --gray-light: #f4f4f4;
     --gray-text: #666;
 }
@@ -18,6 +19,7 @@ body {
     background: var(--white);
     overflow-x: hidden;
     width: 100%;
+    font-weight: 400; /* Regular weight for body */
 }
 
 a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
@@ -33,9 +35,10 @@ input, select, textarea { font-family: var(--font-body); }
     color: #fff;
     text-align: center;
     padding: 6px 0;
-    font-size: 9px;
+    font-size: 10px; /* Slightly larger for readability with new font */
     letter-spacing: 1px;
     text-transform: uppercase;
+    font-weight: 500;
 }
 
 .main-header {
@@ -55,7 +58,7 @@ input, select, textarea { font-family: var(--font-body); }
 
 .header-left, .header-right { flex: 1; display: flex; }
 .header-right { justify-content: flex-end; gap: 20px; align-items: center; }
-.header-right i { font-size: 14px; cursor: pointer; color: #333; }
+.header-right i { font-size: 16px; cursor: pointer; color: #333; }
 .header-center { flex: 2; text-align: center; display: flex; justify-content: center; align-items: center; }
 
 .brand-logo {
@@ -96,10 +99,10 @@ input, select, textarea { font-family: var(--font-body); }
 }
 
 .nav-links > li > a {
-    font-size: 10px;
-    font-weight: 700; 
+    font-size: 11px; /* Adjusted for Montserrat */
+    font-weight: 600; 
     text-transform: uppercase; 
-    letter-spacing: 2px; 
+    letter-spacing: 1px; 
     color: #222;
     padding: 15px 0;
     display: block;
@@ -142,7 +145,7 @@ input, select, textarea { font-family: var(--font-body); }
 .dropdown-menu li a {
     display: block;
     padding: 10px 20px;
-    font-size: 10px;
+    font-size: 11px;
     color: #555;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -192,7 +195,8 @@ input, select, textarea { font-family: var(--font-body); }
 
 .video-overlay h1 {
     font-family: var(--font-head);
-    font-size: 4rem;
+    font-size: 4.5rem; /* Larger for impact */
+    font-weight: 300; /* Lighter weight for bespoke look */
     letter-spacing: 5px;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -203,12 +207,13 @@ input, select, textarea { font-family: var(--font-body); }
     display: inline-block;
     color: #fff;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     border-bottom: 2px solid #fff;
     padding-bottom: 4px;
     margin: 0 10px;
     cursor: pointer;
+    letter-spacing: 2px;
 }
 
 /* --- GRID GALLERY SYSTEM --- */
@@ -224,6 +229,7 @@ input, select, textarea { font-family: var(--font-body); }
 .layout-50-50 { grid-template-columns: 1fr 1fr; }
 .layout-60-40 { grid-template-columns: 1.5fr 1fr; }
 .layout-40-60 { grid-template-columns: 1fr 1.5fr; }
+.layout-25    { grid-template-columns: repeat(4, 1fr); }
 
 .grid-panel {
     position: relative;
@@ -260,8 +266,35 @@ input, select, textarea { font-family: var(--font-body); }
 .overlay-center h2 {
     font-family: var(--font-head);
     font-size: 3rem;
+    font-weight: 300; /* Bespoke Thin look */
     margin-bottom: 15px;
     text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Product Overlays (Newcomers) */
+.overlay-product { 
+    position: absolute; 
+    bottom: 30px; 
+    left: 0; 
+    width: 100%; 
+    text-align: center; 
+    color: #fff; 
+    z-index: 2; 
+    pointer-events: none; 
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8); 
+}
+.overlay-product h3 { 
+    font-family: var(--font-head); 
+    font-size: 1.2rem; 
+    font-weight: 500;
+    margin-bottom: 5px; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+}
+.overlay-product p { 
+    font-size: 12px; 
+    font-weight: 400; 
 }
 
 /* --- STORY SECTION --- */
@@ -280,9 +313,9 @@ input, select, textarea { font-family: var(--font-body); }
 }
 .story-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.3); }
 .story-content { position: relative; z-index: 2; text-align: center; max-width: 900px; padding: 40px; color: #000; }
-.story-content h2 { font-family: var(--font-head); font-size: 3.5rem; letter-spacing: 5px; margin-bottom: 20px; text-transform: uppercase; }
-.story-content h4 { font-family: var(--font-body); font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 3px; text-transform: uppercase; }
-.story-content p { font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
+.story-content h2 { font-family: var(--font-head); font-size: 3.5rem; letter-spacing: 5px; margin-bottom: 20px; text-transform: uppercase; font-weight: 300; }
+.story-content h4 { font-family: var(--font-body); font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+.story-content p { font-size: 16px; line-height: 1.8; margin-bottom: 20px; font-weight: 400; }
 
 /* =========================================
    4. COLLECTION PAGE (Product Grid)
@@ -308,6 +341,7 @@ input, select, textarea { font-family: var(--font-body); }
     padding: 8px 15px;
     cursor: pointer;
     background: transparent;
+    font-weight: 600;
 }
 
 .collection-grid {
@@ -363,14 +397,14 @@ input, select, textarea { font-family: var(--font-body); }
 
 .item-fabric {
     font-size: 11px;
-    color: #777; /* Grey text for fabric */
+    color: #777; 
     text-transform: capitalize;
     margin-bottom: 5px;
 }
 
 .item-price {
     font-size: 11px;
-    font-weight: 400;
+    font-weight: 500;
     color: #000;
 }
 
@@ -397,14 +431,14 @@ input, select, textarea { font-family: var(--font-body); }
 .product-title {
     font-family: var(--font-head);
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 15px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .sale-price {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.1rem;
     display: block;
     margin-bottom: 30px;
@@ -436,7 +470,7 @@ input, select, textarea { font-family: var(--font-body); }
 .size-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 12px; text-transform: uppercase; font-weight: 700; }
 .size-chart-link { text-decoration: underline; color: #555; }
 .size-selector { display: flex; gap: 10px; margin-bottom: 20px; }
-.size-btn { width: 45px; height: 45px; background: #fff; border: 1px solid #ddd; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+.size-btn { width: 45px; height: 45px; background: #fff; border: 1px solid #ddd; font-size: 13px; cursor: pointer; transition: all 0.2s; font-weight: 500; }
 .size-btn:hover { border-color: #000; }
 .size-btn.active { background: #000; color: #fff; border-color: #000; }
 
@@ -450,6 +484,7 @@ input, select, textarea { font-family: var(--font-body); }
     background: #f9f9f9;
     letter-spacing: 1px;
     transition: all 0.2s;
+    font-weight: 600;
 }
 .btn-measure:hover { border-color: #000; background: #fff; }
 .btn-measure i { margin-right: 8px; }
@@ -474,7 +509,7 @@ input, select, textarea { font-family: var(--font-body); }
 /* REVIEWS */
 .reviews-container { max-width: 1000px; margin: 80px auto; padding: 0 40px; border-top: 1px solid #eee; padding-top: 60px; }
 .reviews-header { text-align: center; margin-bottom: 50px; }
-.reviews-header h3 { font-family: var(--font-head); font-size: 2rem; margin-bottom: 10px; }
+.reviews-header h3 { font-family: var(--font-head); font-size: 2rem; margin-bottom: 10px; font-weight: 400; }
 .stars-large { color: #caa43a; font-size: 18px; margin-bottom: 20px; }
 .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .review-card { text-align: center; padding: 20px; background: #fcfcfc; }
@@ -486,14 +521,14 @@ input, select, textarea { font-family: var(--font-body); }
    6. CART PAGE
    ========================================= */
 .cart-wrapper { max-width: 1200px; margin: 40px auto; padding: 0 40px; min-height: 60vh; }
-.page-title { font-family: var(--font-head); text-align: center; font-size: 2.5rem; margin-bottom: 50px; letter-spacing: 2px; }
+.page-title { font-family: var(--font-head); text-align: center; font-size: 2.5rem; margin-bottom: 50px; letter-spacing: 2px; font-weight: 300; }
 .cart-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; }
 .cart-header-row { display: grid; grid-template-columns: 3fr 1fr 1fr; border-bottom: 1px solid #ddd; padding-bottom: 15px; font-size: 11px; font-weight: 700; color: #666; letter-spacing: 1px; }
 .align-right { text-align: right; }
 .cart-item { display: grid; grid-template-columns: 3fr 1fr 1fr; padding: 30px 0; border-bottom: 1px solid #eee; align-items: center; }
 .item-info { display: flex; gap: 20px; }
 .item-info img { width: 80px; height: 100px; object-fit: cover; }
-.item-details h4 { font-size: 13px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+.item-details h4 { font-size: 13px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 .variant { font-size: 12px; color: #666; margin-bottom: 3px; }
 .remove-btn { background: none; border: none; text-decoration: underline; font-size: 11px; cursor: pointer; color: #999; margin-top: 10px; }
 .remove-btn:hover { color: #000; }
@@ -502,7 +537,7 @@ input, select, textarea { font-family: var(--font-body); }
 .qty-selector input { width: 40px; border: none; text-align: center; font-family: var(--font-body); pointer-events: none; }
 .item-price { font-weight: 700; font-size: 14px; }
 .cart-summary { background: #f9f9f9; padding: 30px; height: fit-content; }
-.cart-summary h3 { font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; }
+.cart-summary h3 { font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; font-weight: 600; }
 .summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 13px; }
 .summary-divider { height: 1px; background: #ddd; margin: 20px 0; }
 .summary-row.total { font-weight: 700; font-size: 16px; }
@@ -528,12 +563,12 @@ input, select, textarea { font-family: var(--font-body); }
 }
 .sust-hero::after { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); }
 .sust-hero-content { position: relative; z-index: 2; max-width: 800px; padding: 20px; }
-.sust-hero-content h1 { font-family: var(--font-head); font-size: 3.5rem; letter-spacing: 4px; margin-bottom: 15px; }
+.sust-hero-content h1 { font-family: var(--font-head); font-size: 3.5rem; letter-spacing: 4px; margin-bottom: 15px; font-weight: 300; }
 .sust-section { padding: 80px 40px; text-align: center; background: #fff; }
 .sust-text-block { max-width: 800px; margin: 0 auto; }
-.sust-text-block h2 { font-family: var(--font-head); font-size: 2rem; margin-bottom: 20px; letter-spacing: 2px; }
+.sust-text-block h2 { font-family: var(--font-head); font-size: 2rem; margin-bottom: 20px; letter-spacing: 2px; font-weight: 400; }
 .sust-divider { height: 2px; width: 60px; background: #000; margin: 20px auto; }
-.sust-text-block p { font-size: 16px; line-height: 1.8; color: #444; }
+.sust-text-block p { font-size: 16px; line-height: 1.8; color: #444; font-weight: 400; }
 
 .sust-grid-section { 
     display: grid; 
@@ -545,11 +580,11 @@ input, select, textarea { font-family: var(--font-body); }
 }
 .sust-card { text-align: center; }
 .sust-card img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px; }
-.sust-card h3 { font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 10px; letter-spacing: 1px; }
+.sust-card h3 { font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 10px; letter-spacing: 1px; font-weight: 600; }
 .sust-card p { font-size: 14px; line-height: 1.6; color: #666; }
 
 .sust-quote { background: #f4f4f4; padding: 100px 40px; text-align: center; }
-.sust-quote blockquote { font-family: var(--font-head); font-size: 2rem; color: #333; max-width: 900px; margin: 0 auto; font-style: italic; }
+.sust-quote blockquote { font-family: var(--font-head); font-size: 2rem; color: #333; max-width: 900px; margin: 0 auto; font-style: italic; font-weight: 300; }
 
 /* =========================================
    8. FOOTER & MODALS
@@ -563,7 +598,7 @@ footer { background: #000; color: #fff; padding: 50px 40px 20px; text-align: cen
 .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
 .modal-content { background: #fff; padding: 50px; width: 500px; max-height: 90vh; overflow-y: auto; text-align: center; position: relative; }
 .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; }
-.modal-title { font-family: var(--font-head); margin-bottom: 20px; font-size: 1.5rem; }
+.modal-title { font-family: var(--font-head); margin-bottom: 20px; font-size: 1.5rem; font-weight: 400; }
 
 .form-group { text-align: left; margin-bottom: 15px; }
 .form-group label { font-size: 11px; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 5px; }
@@ -596,4 +631,5 @@ footer { background: #000; color: #fff; padding: 50px 40px 20px; text-align: cen
     .sust-grid-section { grid-template-columns: 1fr; }
     .review-grid { grid-template-columns: 1fr; }
     .dropdown-menu { display: none; }
+    .layout-25 { grid-template-columns: 1fr 1fr; }
 }
