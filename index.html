@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PATO NEPAL</title>
-    <!-- This line is crucial for the design to appear -->
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,42 +12,83 @@
 </head>
 <body>
 
-    <!-- Header will be injected here by script.js -->
     <div id="header-placeholder"></div>
 
-    <!-- === START OF VIDEO HERO === -->
+    <!-- === VIDEO HERO === -->
     <section class="hero-video-section">
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="assets/herovideo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        
         <div class="video-overlay">
-            <!-- <a href="product.html" class="overlay-btn">EXPLORE</a> -->
+            <h1>PATO NEPAL</h1>
+            <a href="collection.html?category=men" class="overlay-btn" style="margin-right:20px;">SHOP MEN</a>
+            <a href="collection.html?category=women" class="overlay-btn">SHOP WOMEN</a>
         </div>
     </section>
 
-    <!-- === START OF IMAGE GRID === -->
-
-    <!-- ROW 1: HERO (50:50) -->
-    <section class="grid-row layout-50-50">
-        <div class="grid-panel">
-            <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?q=80&w=1200" alt="Hero Men">
+    <!-- === ROW 1: THE NEWCOMERS (SINGLE BOX CATEGORY) === -->
+    <section class="grid-row layout-100">
+        <div class="grid-panel" onclick="window.location.href='collection.html?category=newcomers'">
+            <!-- Fashion Runway / Group Shot -->
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1600" alt="Newcomers Collection">
             <div class="overlay-center">
-                <h2>MEN</h2>
-                <a href="product.html" class="overlay-btn">SHOP</a>
+                <h2>THE NEWCOMERS</h2>
+                <span class="overlay-btn">SHOP LATEST ARRIVALS</span>
             </div>
         </div>
-        <div class="grid-panel">
+    </section>
+
+    <!-- === ROW 2: MEN & WOMEN === -->
+    <section class="grid-row layout-50-50">
+        <div class="grid-panel" onclick="window.location.href='collection.html?category=men'">
+            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1200" alt="Hero Men">
+            <div class="overlay-center">
+                <h2>MEN'S WEAR</h2>
+                <span class="overlay-btn">VIEW COLLECTION</span>
+            </div>
+        </div>
+        <div class="grid-panel" onclick="window.location.href='collection.html?category=women'">
             <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200" alt="Hero Women">
             <div class="overlay-center">
-                <h2>WOMEN</h2>
-                <a href="product.html" class="overlay-btn">SHOP</a>
+                <h2>WOMEN'S WEAR</h2>
+                <span class="overlay-btn">VIEW COLLECTION</span>
             </div>
         </div>
     </section>
 
-    <!-- ROW 2: OFFSIDE LEFT (60:40) -->
+    <!-- === ROW 3: COMING SOON (ROYAL VELVET) === -->
+    <section class="grid-row layout-100">
+        <div class="grid-panel">
+            <!-- Updated Image: Dark Luxury Red/Purple Velvet Texture -->
+            <img src="assets/royalvelvet.jpg" alt="Royal Velvet Background">
+            <div class="overlay-center">
+                <p style="letter-spacing: 3px; margin-bottom: 10px; font-size: 12px; color: #eee;">WINTER 2026</p>
+                <h2 style="font-size: 4rem;">THE ROYAL VELVET</h2>
+                <span class="overlay-btn">COMING SOON</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- === ROW 4: FABRICS & SUITS === -->
+    <section class="grid-row layout-40-60">
+        <div class="grid-panel" onclick="window.location.href='collection.html?category=fabrics'">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1200" alt="Fabrics Texture">
+            <div class="overlay-center">
+                <h2>FABRICS</h2>
+                <span class="overlay-btn">EXPLORE MATERIALS</span>
+            </div>
+        </div>
+        <div class="grid-panel" onclick="window.location.href='collection.html?category=suits'">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600" alt="Suits">
+            <div class="overlay-center">
+                <h2>SUITS</h2>
+                <span class="overlay-btn">VIEW SUITS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- === ROW 5: EDITORIAL & ATELIER === -->
     <section class="grid-row layout-60-40">
         <div class="grid-panel">
             <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600" alt="Editorial Wide">
@@ -58,63 +98,10 @@
             </div>
         </div>
         <div class="grid-panel">
-            <img src="assets/single_breasted.jpg" alt="Suits">
-            <div class="overlay-center">
-                <h2>SUITS</h2>
-                <a href="product.html" class="overlay-btn">VIEW</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROW 3: OFFSIDE RIGHT (40:60) -->
-    <section class="grid-row layout-40-60">
-        <div class="grid-panel">
-            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800" alt="Bags">
-            <div class="overlay-center">
-                <h2>BAGS</h2>
-                <a href="product.html" class="overlay-btn">SHOP</a>
-            </div>
-        </div>
-        <div class="grid-panel">
-            <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=1600" alt="Lifestyle">
-            <div class="overlay-center">
-                <h2>LIFESTYLE</h2>
-                <a href="#" class="overlay-btn">EXPLORE</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROW 4: PANORAMIC SPLIT (70:30) -->
-    <section class="grid-row layout-70-30">
-        <div class="grid-panel">
-            <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=1800" alt="Wide Scene">
-            <div class="overlay-center">
-                <h2>RUNWAY</h2>
-                <a href="#" class="overlay-btn">SEE LOOKS</a>
-            </div>
-        </div>
-        <div class="grid-panel">
-            <img src="assets/details.jpg" alt="Detail Shot">
+             <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800" alt="Details">
              <div class="overlay-center">
-                <h2>DETAILS</h2>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROW 5: REVERSE PANORAMIC (30:70) -->
-    <section class="grid-row layout-30-70">
-        <div class="grid-panel">
-            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=600" alt="Detail Shot 2">
-            <div class="overlay-center">
-                <h2>SHOES</h2>
-            </div>
-        </div>
-        <div class="grid-panel">
-            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1800" alt="Wide Scene 2">
-            <div class="overlay-center">
-                <h2>TRAVEL</h2>
-                <a href="#" class="overlay-btn">GO</a>
-            </div>
+                <h2>ATELIER</h2>
+             </div>
         </div>
     </section>
 
@@ -126,28 +113,14 @@
             <h4>CRAFTED WITH PERFECTION</h4>
             <p>
                 Welcome to the world of Pato Nepal. Experience luxury with passion in every apparel you wear. 
-                Pato, headquartered in Kathmandu, has its designs crafted with the finest materials. 
             </p>
         </div>
     </section>
 
-    <!-- Footer will be injected here -->
     <div id="footer-placeholder"></div>
+    <div id="authModal" class="modal"></div>
 
-    <!-- AUTH MODAL -->
-    <div id="authModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeAuth()">&times;</span>
-            <h2 id="modalTitle">LOGIN</h2>
-            <form id="authForm">
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">SUBMIT</button>
-            </form>
-            <p class="toggle-text" onclick="toggleMode()">New here? Create Account</p>
-        </div>
-    </div>
-
+    <script src="database.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

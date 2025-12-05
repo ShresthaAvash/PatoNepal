@@ -1,88 +1,115 @@
-// --- 1. COMPONENT LOADER (Load Header/Footer) ---
+// --- 1. COMPONENT LOADER ---
 async function loadComponent(id, file) {
     try {
         const response = await fetch(file);
         if (response.ok) {
             const text = await response.text();
             document.getElementById(id).innerHTML = text;
-            
-            // Re-attach event listeners after HTML is loaded
-            if(id === 'header-placeholder') {
-                // We need to re-initialize modal triggers because the button was just added
-                // This is a simple workaround for this project structure
-                document.querySelector('.mobile-burger')?.addEventListener('click', toggleMobileMenu);
-                // Note: Auth toggle is handled via onclick attribute in HTML, so it works.
-            }
         }
     } catch (error) {
         console.error("Error loading component:", error);
     }
 }
 
-// Load components immediately
 document.addEventListener("DOMContentLoaded", () => {
     loadComponent("header-placeholder", "components/header.html");
     loadComponent("footer-placeholder", "components/footer.html");
+    
+    // Auth Modal Logic Injection
+    const authModalContent = `
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAuth()">&times;</span>
+            <h2 id="modalTitle">LOGIN</h2>
+            <form id="authForm">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">SUBMIT</button>
+            </form>
+            <p class="toggle-text" onclick="toggleMode()">New here? Create Account</p>
+        </div>
+    `;
+    const authModal = document.getElementById('authModal');
+    if(authModal) authModal.innerHTML = authModalContent;
+
+    // Router
+    if (document.getElementById('collectionGrid')) renderCollection();
+    if (document.getElementById('productDetailsSection')) renderProductPage();
 });
 
-
-// --- 2. ANIMATION OBSERVER ---
-const observerOptions = { threshold: 0.1 };
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+// --- 2. COLLECTION PAGE LOGIC ---
+function renderCollection() {
+    // Uses 'products' from database.js
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category') || 'men'; 
+    
+    const filteredProducts = products.filter(p => p.category === category);
+    
+    const grid = document.getElementById('collectionGrid');
+    const title = document.getElementById('collectionTitle');
+    const count = document.getElementById('resultsCount');
+    
+    if(title) title.innerText = category.toUpperCase() + (category === 'suits' ? '' : "'S COLLECTION");
+    if(count) count.innerText = filteredProducts.length + " Results";
+    
+    if(grid) {
+        if(filteredProducts.length === 0) {
+            grid.innerHTML = "<p>No products found in this category.</p>";
+            return;
         }
-    });
-}, observerOptions);
 
-document.querySelectorAll('.scroll-animate').forEach((el) => {
-    observer.observe(el);
-});
-
-
-// --- 3. CART LOGIC (Only runs on cart page) ---
-let quantity = 1;
-const pricePerItem = 4800;
-
-function updateQty(change) {
-    const qtyInput = document.getElementById('qtyInput');
-    const itemPriceEl = document.getElementById('itemPrice');
-    const subtotalEl = document.getElementById('subtotalPrice');
-    const totalEl = document.getElementById('totalPrice');
-
-    if (!qtyInput) return; // Exit if not on cart page
-
-    quantity += change;
-    if (quantity < 1) quantity = 1;
-
-    // Update Input
-    qtyInput.value = quantity;
-
-    // Calculate Values
-    const currentTotal = pricePerItem * quantity;
-    const formattedPrice = "Rs " + currentTotal.toLocaleString('en-IN', {minimumFractionDigits: 2});
-
-    // Update DOM
-    itemPriceEl.innerText = formattedPrice;
-    subtotalEl.innerText = formattedPrice;
-    totalEl.innerText = formattedPrice;
+        grid.innerHTML = filteredProducts.map(product => `
+            <div class="collection-item" onclick="window.location.href='product.html?id=${product.id}'">
+                <div class="collection-img-wrapper">
+                    <img src="${product.img}" alt="${product.name}" loading="lazy">
+                    <i class="fa-regular fa-heart wishlist-icon"></i>
+                </div>
+                <div class="collection-info">
+                    <p class="item-name">${product.name}</p>
+                    <p class="item-fabric">${product.fabricName}</p>
+                    <p class="item-price">${product.price > 0 ? 'Rs ' + product.price.toLocaleString() : 'View Details'}</p>
+                </div>
+            </div>
+        `).join('');
+    }
 }
 
+// --- 3. PRODUCT DETAIL PAGE LOGIC ---
+function renderProductPage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    
+    const product = products.find(p => p.id === productId);
+    
+    if (product) {
+        document.getElementById('productTitle').innerText = product.name;
+        document.getElementById('mainProductImg').src = product.img;
+        document.getElementById('productPrice').innerText = "Rs " + product.price.toLocaleString();
+        document.title = product.name + " | PATO NEPAL";
 
-// --- 4. PRODUCT PAGE LOGIC (Gallery, Sizes, Accordion) ---
-// (Only runs if elements exist)
+        const fabricSection = document.getElementById('fabricDisplaySection');
+        if(fabricSection && product.fabricImg) {
+            fabricSection.innerHTML = `
+                <div class="fabric-swatch-container">
+                    <p class="fabric-label">Material: <span>${product.fabricName}</span></p>
+                    <img src="${product.fabricImg}" alt="${product.fabricName}" class="fabric-swatch-img">
+                </div>
+            `;
+        }
+        
+        const thumbs = document.querySelectorAll('.thumb');
+        thumbs.forEach(t => t.src = product.img);
+    }
+}
+
+// --- 4. GENERAL UI LOGIC ---
 function changeImage(thumbnail) {
     const mainImg = document.getElementById('mainProductImg');
     if(!mainImg) return;
-    
     mainImg.style.opacity = '0.5';
     setTimeout(() => {
         mainImg.src = thumbnail.src;
         mainImg.style.opacity = '1';
     }, 200);
-
     document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
     thumbnail.classList.add('active');
 }
@@ -95,7 +122,6 @@ function selectSize(btn) {
 function toggleAccordion(header) {
     const content = header.nextElementSibling;
     const icon = header.querySelector('i');
-    
     if (content.style.maxHeight) {
         content.style.maxHeight = null;
         content.classList.remove('open');
@@ -109,48 +135,46 @@ function toggleAccordion(header) {
     }
 }
 
+// --- 5. MODAL LOGIC (Auth & Measurements) ---
+function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+}
 
-// --- 5. AUTH MODAL ---
-const modal = document.getElementById('authModal');
+function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+}
+
+// Auth Specifics
 let isLogin = true;
-
 function toggleAuth(type) {
-    const modalTitle = document.getElementById('modalTitle');
-    const toggleText = document.querySelector('.toggle-text');
-    
-    modal.style.display = 'flex';
+    openModal('authModal');
     isLogin = true;
-    
-    if(modalTitle) {
-        modalTitle.innerText = "LOGIN";
-        toggleText.innerText = "New here? Create an Account";
-    }
+    updateAuthText();
 }
-
-function closeAuth() {
-    modal.style.display = 'none';
-}
-
+function closeAuth() { closeModal('authModal'); }
 function toggleMode() {
     isLogin = !isLogin;
+    updateAuthText();
+}
+function updateAuthText() {
     const modalTitle = document.getElementById('modalTitle');
     const toggleText = document.querySelector('.toggle-text');
-    
-    if (isLogin) {
-        modalTitle.innerText = "LOGIN";
-        toggleText.innerText = "New here? Create an Account";
-    } else {
-        modalTitle.innerText = "REGISTER";
-        toggleText.innerText = "Already have an account? Login";
+    if(modalTitle && toggleText) {
+        if (isLogin) {
+            modalTitle.innerText = "LOGIN";
+            toggleText.innerText = "New here? Create an Account";
+        } else {
+            modalTitle.innerText = "REGISTER";
+            toggleText.innerText = "Already have an account? Login";
+        }
     }
 }
 
+// Close modals on outside click
 window.onclick = function(event) {
-    if (event.target == modal) {
-        closeAuth();
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
     }
 }
 
-function toggleMobileMenu() {
-    alert("Mobile menu clicked");
-}
+function toggleMobileMenu() { alert("Mobile menu clicked"); }

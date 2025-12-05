@@ -17,7 +17,6 @@
         <div class="header-right">
             <a href="#" onclick="toggleAuth('login')"><i class="fa-regular fa-user"></i></a>
             <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <!-- CART ICON LINKS TO CART PAGE -->
             <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
         </div>
     </div>
@@ -26,11 +25,39 @@
 <!-- NAVIGATION -->
 <nav class="main-nav">
     <ul class="nav-links">
-        <li><a href="product.html">MEN</a></li>
-        <li><a href="product.html">WOMEN</a></li>
-        <li><a href="product.html">SUITS</a></li>
-        <li><a href="product.html">ACCESSORIES</a></li>
-        <!-- LINK UPDATED HERE -->
+        
+        <!-- MEN DROPDOWN -->
+        <li class="dropdown-parent">
+            <a href="collection.html?category=men">MEN</a>
+            <ul class="dropdown-menu">
+                <li><a href="collection.html?category=men">Coats & Jackets</a></li>
+                <li><a href="collection.html?category=men">Cashmere</a></li>
+                <li><a href="collection.html?category=men">Blazers</a></li>
+                <li><a href="collection.html?category=men">View All Men</a></li>
+            </ul>
+        </li>
+
+        <!-- WOMEN DROPDOWN -->
+        <li class="dropdown-parent">
+            <a href="collection.html?category=women">WOMEN</a>
+            <ul class="dropdown-menu">
+                <li><a href="collection.html?category=women">Cashmere Collection</a></li>
+                <li><a href="collection.html?category=women">Coats & Jackets</a></li>
+                <li><a href="collection.html?category=women">View All Women</a></li>
+            </ul>
+        </li>
+
+        <!-- SUITS DROPDOWN -->
+        <li class="dropdown-parent">
+            <a href="collection.html?category=suits">SUITS</a>
+            <ul class="dropdown-menu">
+                <li><a href="collection.html?category=suits">Business Suits</a></li>
+                <li><a href="collection.html?category=suits">Wedding & Formal</a></li>
+                <li><a href="collection.html?category=suits">View All Suits</a></li>
+            </ul>
+        </li>
+
+        <li><a href="collection.html?category=fabrics">FABRICS</a></li>
         <li><a href="sustainability.html">SUSTAINABILITY</a></li>
     </ul>
 </nav>
