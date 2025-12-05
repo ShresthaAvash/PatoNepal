@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twill Pearl Shirt | PATO NEPAL</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+    <!-- === PRODUCT MAIN SECTION === -->
+    <section class="product-container">
+        
+        <!-- LEFT: GALLERY -->
+        <div class="product-gallery">
+            <div class="main-image-frame">
+                <img id="mainProductImg" src="https://images.unsplash.com/photo-1620799140408-ed5341cd2431?q=80&w=1200" alt="Twill Pearl Shirt">
+            </div>
+            <div class="thumbnail-row">
+                <!-- Thumbnails (Click to swap) -->
+                <img src="https://images.unsplash.com/photo-1620799140408-ed5341cd2431?q=80&w=400" class="thumb active" onclick="changeImage(this)">
+                <img src="https://images.unsplash.com/photo-1603252109303-27514432f5e3?q=80&w=400" class="thumb" onclick="changeImage(this)">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=400" class="thumb" onclick="changeImage(this)">
+                <img src="https://images.unsplash.com/photo-1589712630563-3cb3d5084961?q=80&w=400" class="thumb" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <!-- RIGHT: DETAILS -->
+        <div class="product-details scroll-animate">
+            <h1 class="product-title">TWILL PEARL MEN'S SHIRT</h1>
+            
+            <div class="price-container">
+                <span class="original-price">Rs 7,500.00</span>
+                <span class="sale-price">Rs 4,800.00 NPR</span>
+            </div>
+
+            <div class="size-section">
+                <div class="size-header">
+                    <span>Select Size</span>
+                    <a href="#" class="size-chart-link"><i class="fa-solid fa-ruler-horizontal"></i> Size Chart</a>
+                </div>
+                <div class="size-selector">
+                    <button class="size-btn" onclick="selectSize(this)">39</button>
+                    <button class="size-btn" onclick="selectSize(this)">40</button>
+                    <button class="size-btn" onclick="selectSize(this)">41</button>
+                    <button class="size-btn" onclick="selectSize(this)">42</button>
+                    <button class="size-btn" onclick="selectSize(this)">43</button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-black">ADD TO CART</button>
+                <button class="btn-outline">BUY IT NOW</button>
+            </div>
+
+            <div class="shipping-info">
+                <p><i class="fa-solid fa-truck-fast"></i> Delivery in 2-3 days inside Kathmandu.</p>
+                <p><i class="fa-solid fa-box-open"></i> Free Returns & Exchanges.</p>
+            </div>
+
+            <!-- ACCORDION DETAILS (Like PDF) -->
+            <div class="accordion-wrapper">
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        PRODUCT DESCRIPTION <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Pato's most versatile shirt for any occasion from business to evening wear. Perfected by over several decades, it gives you a flattering, impeccable look whether you’re off to a business meeting or a formal event.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        FEATURES & FIT <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Slim fit</li>
+                            <li>Single Cuff</li>
+                            <li>Classic Collar</li>
+                            <li>Signature Twill</li>
+                            <li>Long Sleeves</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        COMPOSITION & CARE <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>Composition:</strong> 70% Cotton, 30% Terelyne</p>
+                        <p><strong>Care:</strong> Hand wash only. Do not bleach. Iron on low heat.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- === REVIEWS SECTION === -->
+    <section class="reviews-container scroll-animate">
+        <div class="reviews-header">
+            <h3>CUSTOMER REVIEWS</h3>
+            <div class="stars-large">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span>(Based on 10 reviews)</span>
+            </div>
+            <button class="write-review-btn">Write a Review</button>
+        </div>
+
+        <div class="review-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="stars-small">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h4>Lalit Pandey</h4>
+                <p class="review-text">"Didn't know what the word twill meant until I wore this shirt. The quality is very good."</p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="stars-small">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h4>Ojesh Dangol</h4>
+                <p class="review-text">"This shirt is true love. Have already bought 3 pieces of different colors but this one is the best for me."</p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="stars-small">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h4>Suraj Budathoki</h4>
+                <p class="review-text">"I had bought 2-3 pieces of shirt from recently and I have to say Im quite impressed."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- === YOU MAY ALSO LIKE === -->
+    <section class="related-products scroll-animate">
+        <h3 class="section-heading">YOU MAY ALSO LIKE</h3>
+        <div class="related-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=600" alt="Waffle Knit">
+                <div class="card-info">
+                    <h5>GRAPHITE WAFFLE KNIT</h5>
+                    <p class="price"><del>Rs 15,500</del> Rs 12,500</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600" alt="Black Shirt">
+                <div class="card-info">
+                    <h5>TWILL SETH SHIRT</h5>
+                    <p class="price"><del>Rs 7,500</del> Rs 4,800</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600" alt="Suit">
+                <div class="card-info">
+                    <h5>COUTURIER SUIT</h5>
+                    <p class="price">Rs 22,000</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+    <!-- AUTH MODAL (Same as Index) -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAuth()">&times;</span>
+            <h2 id="modalTitle">LOGIN</h2>
+            <form id="authForm">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">SUBMIT</button>
+            </form>
+            <p class="toggle-text" onclick="toggleMode()">New here? Create Account</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+</code>
+

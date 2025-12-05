@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATO NEPAL</title>
+    <!-- This line is crucial for the design to appear -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header will be injected here by script.js -->
+    <div id="header-placeholder"></div>
+
+    <!-- === START OF VIDEO HERO === -->
+    <section class="hero-video-section">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="assets/herovideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="video-overlay">
+            <!-- <a href="product.html" class="overlay-btn">EXPLORE</a> -->
+        </div>
+    </section>
+
+    <!-- === START OF IMAGE GRID === -->
+
+    <!-- ROW 1: HERO (50:50) -->
+    <section class="grid-row layout-50-50">
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?q=80&w=1200" alt="Hero Men">
+            <div class="overlay-center">
+                <h2>MEN</h2>
+                <a href="product.html" class="overlay-btn">SHOP</a>
+            </div>
+        </div>
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200" alt="Hero Women">
+            <div class="overlay-center">
+                <h2>WOMEN</h2>
+                <a href="product.html" class="overlay-btn">SHOP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROW 2: OFFSIDE LEFT (60:40) -->
+    <section class="grid-row layout-60-40">
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600" alt="Editorial Wide">
+            <div class="overlay-center">
+                <h2>EDITORIAL</h2>
+                <a href="#" class="overlay-btn">READ</a>
+            </div>
+        </div>
+        <div class="grid-panel">
+            <img src="assets/single_breasted.jpg" alt="Suits">
+            <div class="overlay-center">
+                <h2>SUITS</h2>
+                <a href="product.html" class="overlay-btn">VIEW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROW 3: OFFSIDE RIGHT (40:60) -->
+    <section class="grid-row layout-40-60">
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800" alt="Bags">
+            <div class="overlay-center">
+                <h2>BAGS</h2>
+                <a href="product.html" class="overlay-btn">SHOP</a>
+            </div>
+        </div>
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=1600" alt="Lifestyle">
+            <div class="overlay-center">
+                <h2>LIFESTYLE</h2>
+                <a href="#" class="overlay-btn">EXPLORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROW 4: PANORAMIC SPLIT (70:30) -->
+    <section class="grid-row layout-70-30">
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=1800" alt="Wide Scene">
+            <div class="overlay-center">
+                <h2>RUNWAY</h2>
+                <a href="#" class="overlay-btn">SEE LOOKS</a>
+            </div>
+        </div>
+        <div class="grid-panel">
+            <img src="assets/details.jpg" alt="Detail Shot">
+             <div class="overlay-center">
+                <h2>DETAILS</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROW 5: REVERSE PANORAMIC (30:70) -->
+    <section class="grid-row layout-30-70">
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=600" alt="Detail Shot 2">
+            <div class="overlay-center">
+                <h2>SHOES</h2>
+            </div>
+        </div>
+        <div class="grid-panel">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1800" alt="Wide Scene 2">
+            <div class="overlay-center">
+                <h2>TRAVEL</h2>
+                <a href="#" class="overlay-btn">GO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORY SECTION -->
+    <section class="story-section">
+        <div class="story-overlay"></div>
+        <div class="story-content">
+            <h2>PATO NEPAL</h2>
+            <h4>CRAFTED WITH PERFECTION</h4>
+            <p>
+                Welcome to the world of Pato Nepal. Experience luxury with passion in every apparel you wear. 
+                Pato, headquartered in Kathmandu, has its designs crafted with the finest materials. 
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAuth()">&times;</span>
+            <h2 id="modalTitle">LOGIN</h2>
+            <form id="authForm">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">SUBMIT</button>
+            </form>
+            <p class="toggle-text" onclick="toggleMode()">New here? Create Account</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
